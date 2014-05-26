@@ -1,1 +1,21 @@
 <h1>Home! Here it shall all happen.</h1>
+
+<iframe src="https://embed.spotify.com/?uri=spotify:trackset:TITULO:5Z7ygHQo02SUrFmcgpwsKW,1x6ACsKV4UdWS2FMuPFUiT,4bi73jCM02fMpkI11Lqmfe" frameborder="0" allowtransparency="true"></iframe>
+
+
+<%= label_tag :song_name %>
+<%= text_field_tag :song_name%>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#song_name").tokenInput('<%= spotify_search_index_url(:format => :json)%>', {
+            zindex: 10000,
+            crossDomain:false,
+            theme:"facebook",
+            tokenLimit:1,
+            hintText:"Digite o nome de uma música",
+            noResultsText:"Nenhuma música encontrada",
+            tokenValue:'id',
+            searchingText:"Buscando..."
+        });
+    });
+</script>

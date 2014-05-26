@@ -1,7 +1,12 @@
-class HomeController < ActionController::Base
-  protect_from_forgery
+class HomeController < ApplicationController
 
   def index
+    respond_to do |format|
+      format.html{}
+      format.json{
+        query = params[:q]
+      }
+    end
 
   end
 
