@@ -2,13 +2,17 @@
 <html>
 <head>
   <title>Ourvibe</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+<div class="container reative-width">
+  <header id="header" class="header content">
+    <h1>Ourvibe. Share the vibe.</h1>
+  </header>
+  <%= yield %>
+</div>
 
 </body>
 </html>

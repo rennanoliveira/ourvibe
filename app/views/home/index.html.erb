@@ -1,14 +1,16 @@
-<h1>Home! Here it shall all happen.</h1>
+<section id="songs" class="content">
+  <div class="spotify_widget">
+    <iframe id="spotify_iframe" src="https://embed.spotify.com/?uri=spotify:trackset:TITULO:5Z7ygHQo02SUrFmcgpwsKW,1x6ACsKV4UdWS2FMuPFUiT,4bi73jCM02fMpkI11Lqmfe" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+  </div>
+  <%= label_tag :song_name %>
+  <%= text_field_tag :song_name %>
+  <%= submit_tag "Enviar", :id => "new_song" %>
+</section>
 
-<iframe src="https://embed.spotify.com/?uri=spotify:trackset:TITULO:5Z7ygHQo02SUrFmcgpwsKW,1x6ACsKV4UdWS2FMuPFUiT,4bi73jCM02fMpkI11Lqmfe" frameborder="0" allowtransparency="true"></iframe>
-
-
-<%= label_tag :song_name %>
-<%= text_field_tag :song_name%>
 <script type="text/javascript">
     $(document).ready(function () {
         $("#song_name").tokenInput('<%= spotify_search_index_url(:format => :json)%>', {
-            zindex: 10000,
+            zindex:10000,
             crossDomain:false,
             theme:"facebook",
             tokenLimit:1,
@@ -17,5 +19,17 @@
             tokenValue:'id',
             searchingText:"Buscando..."
         });
+
+        $("#new_song").click(function (button) {
+            button.preventDefault();
+            frame = $('#spotify_iframe');
+            old_list = frame.attr('src');
+            new_song = $('#song_name').val();
+            if (new_song) {
+                frame.attr('src', old_list + "," + new_song)
+            }
+            $('.token-input-delete-token-facebook').click();
+        })
+
     });
 </script>

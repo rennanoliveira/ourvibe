@@ -11,3 +11,28 @@
  *= require_self
  *= require_tree .
  */
+
+body {
+    background-attachment: fixed;
+    background-size: cover;
+    background-image: url(schoolbus.jpg);
+    background-repeat: no-repeat;
+}
+
+.relative-width{
+    position: relative;
+    width: 940px;
+}
+
+.container {
+    border: medium none;
+    height: auto;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.content{
+    margin: 0 auto 40px;
+    position: relative;
+    width: 940px;
+}

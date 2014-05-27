@@ -24,11 +24,11 @@ class SpotifySearch
   end
 
   def parse_albums(raw_tracks)
-
+    raise "Not yet implemented"
   end
 
   def parse_artists(raw_artists)
-
+    raise "Not yet implemented"
   end
 
   def parse_tracks(raw_tracks)
@@ -38,8 +38,8 @@ class SpotifySearch
         album_name = raw_track["album"]["name"]
         name = raw_track["name"]
         artist = raw_track["artists"].first["name"]
-        href = raw_track["href"]
-        tracks << {:name => name + " (#{artist})", :id => href}
+        href = raw_track["href"].split("track:").last
+        tracks << {:name => name + " (#{artist} - #{album_name})", :id => href}
       end
     end
     tracks
