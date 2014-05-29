@@ -7,11 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="container reative-width">
-  <header id="header" class="header content">
+<div class="container reative-width content">
+  <header id="header" class="header">
     <h1>Ourvibe. Share the vibe.</h1>
   </header>
   <%= yield %>
+
+<%= render "layouts/footer" %>
 </div>
 
 </body>

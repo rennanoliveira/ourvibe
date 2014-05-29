@@ -1,6 +1,6 @@
 Ourvibe::Application.routes.draw do
 
-   root :to => 'home#index'
+  root :to => 'playlists#index'
 
   resources :spotify_search, :only => :index
 
